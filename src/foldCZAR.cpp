@@ -38,9 +38,18 @@ struct FoldCzar : Module {
 		// Configure parameters
 		// See engine/Param.hpp for config() arguments
 		configParam(PITCH_PARAM, -3.f, 3.f, 0.f, "Pitch", " Hz", 2.f, dsp::FREQ_C4);
-		configParam(SKEW_PARAM, 0.01f, 0.99f, 0.5f);
-		configParam(FOLD_PARAM, 0.99f, 0.f, 0.1f);
-		configParam(SWAP_PARAM, 0.f, 0.99f, 0.5f);
+		configParam(SKEW_PARAM, 0.01f, 0.99f, 0.5f,"Skew");
+		configParam(FOLD_PARAM, 0.99f, 0.f, 0.1f, "Fold");
+		configParam(SWAP_PARAM, 0.f, 0.99f, 0.5f, "Swap");
+
+		configInput(PITCH_INPUT, "Pitch (v/oct)");
+		configInput(SKEW_INPUT, "Skew CV");
+		configInput(SWAP_INPUT, "Swap CV");
+		configInput(FOLD_INPUT, "Fold CV");
+
+		configOutput(MAIN_OUTPUT, "Main");
+		configOutput(CAT_OUTPUT, "Cat algorithm");
+		configOutput(MTN_OUTPUT, "Mountain algorithm");
 	
 	}
 
